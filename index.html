@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carlos Patal | Desarrollador Web / Backend</title>
+  <meta name="description"
+    content="Portafolio de Carlos Patal — Desarrollador Web / Backend, proyectos, habilidades y experiencia." />
+  <meta name="author" content="Carlos Patal" />
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Carlos Patal | Desarrollador Web / Backend" />
+  <meta property="og:description"
+    content="Portafolio profesional de Carlos Patal. Soluciones web, desarrollo backend y proyectos fullstack." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/img/perfil.jpg" />
+
+  <!-- Google Fonts & Devicons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=JetBrains+Mono:wght@400;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css" />
+
+  <!-- Estilos del Tema -->
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ============================================================
+       NAVEGACIÓN
+       ============================================================ -->
+  <header class="nav" id="nav">
+    <nav class="contenedor nav__interior" aria-label="Navegación principal">
+      <a class="nav__marca" href="#inicio" data-perfil="marca">&lt;dev /&gt;</a>
+
+      <button class="nav__boton" id="menu-boton" aria-label="Abrir menú" aria-expanded="false"
+        aria-controls="menu-lista">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav__lista" id="menu-lista">
+        <li><a href="#inicio" class="nav__enlace">Inicio</a></li>
+        <li><a href="#sobre-mi" class="nav__enlace">Sobre mí</a></li>
+        <li><a href="#habilidades" class="nav__enlace">Habilidades</a></li>
+        <li><a href="#curriculum" class="nav__enlace">Currículum</a></li>
+        <li><a href="#proyectos" class="nav__enlace">Proyectos</a></li>
+        <li><a href="#contacto" class="nav__enlace">Contacto</a></li>
+        <li>
+          <button id="lang-toggle" class="boton-lang" aria-label="Cambiar idioma (Español / English)">
+            <span class="lang-code active" id="lang-es">ES</span>
+            <span class="lang-separator">|</span>
+            <span class="lang-code" id="lang-en">EN</span>
+          </button>
+        </li>
+        <li>
+          <button id="theme-toggle" class="boton-tema" aria-label="Alternar modo claro/oscuro">
+            <svg id="theme-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ============================================================
+         SECCIÓN HERO
+         ============================================================ -->
+    <section class="hero" id="inicio">
+      <div class="contenedor hero__interior">
+        <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(33, 117, 155, 0.15); border: 1px solid rgba(33, 117, 155, 0.4); padding: 0.4rem 0.9rem; border-radius: 9999px; margin-bottom: 1.25rem;">
+          <i class="devicon-wordpress-plain colored" style="font-size: 1.2rem;"></i>
+          <span class="mono" style="font-size: 0.85rem; color: #38bdf8; font-weight: 600;">Tema Oficial para WordPress v1.0</span>
+        </div>
+        <p class="hero__eyebrow mono" data-i18n="hero_eyebrow">// Bienvenido a mi portafolio</p>
+        <h1 class="hero__titulo">
+          <span data-i18n="hero_hola">Hola, soy</span> <span class="acento" data-perfil="nombre">Carlos Patal</span>
+        </h1>
+        <p class="hero__rol" data-perfil="titulo"></p>
+        <p class="hero__frase" data-perfil="frase"></p>
+
+        <div class="hero__acciones">
+          <a href="#proyectos" class="boton boton--primario" data-i18n="btn_ver_proyectos">Ver proyectos</a>
+          <a href="carlos-patal-portfolio.zip" download class="boton boton--fantasma" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+            <i class="devicon-wordpress-plain"></i> Descargar Tema WP (.zip)
+          </a>
+          <a href="#contacto" class="boton boton--fantasma" data-i18n="btn_contactame">Contáctame</a>
+        </div>
+      </div>
+
+      <a href="#sobre-mi" class="hero__scroll" aria-label="Bajar a la sección Sobre mí">
+        <span class="hero__scroll-rueda"></span>
+      </a>
+    </section>
+
+    <!-- ============================================================
+         SECCIÓN SOBRE MÍ
+         ============================================================ -->
+    <section class="seccion" id="sobre-mi">
+      <div class="contenedor">
+        <p class="seccion__eyebrow mono" data-i18n="sec_info_num">01. Información</p>
+        <h2 class="seccion__titulo" data-i18n="sec_sobre_mi_titulo">Sobre mí</h2>
+
+        <div class="sobre-mi__grid">
+          <article class="tarjeta sobre-mi__tarjeta-perfil reveal">
+            <div class="sobre-mi__perfil-header">
+              <div class="sobre-mi__foto-container">
+                <img src="assets/img/perfil.jpg" alt="Foto de Carlos Patal" class="sobre-mi__foto" />
+                <div class="sobre-mi__foto-badge mono" style="margin-top: 0.65rem;">
+                  <span class="contacto-badge__dot"></span> Fullstack (Backend & Frontend)
+                </div>
+              </div>
+
+              <div class="sobre-mi__info-texto">
+                <h3 class="tarjeta__titulo" data-perfil="titulo"></h3>
+                <p class="sobre-mi__descripcion" data-perfil="descripcion"></p>
+              </div>
+            </div>
+          </article>
+
+          <article class="tarjeta reveal">
+            <h3 class="tarjeta__titulo" data-i18n="datos_generales_titulo">Datos generales</h3>
+            <dl class="datos" id="lista-datos"></dl>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECCIÓN HABILIDADES / TECNOLOGÍAS
+         ============================================================ -->
+    <section class="seccion" id="habilidades">
+      <div class="contenedor">
+        <p class="seccion__eyebrow mono" data-i18n="sec_tech_num">02. Tecnologías</p>
+        <h2 class="seccion__titulo" data-i18n="sec_tech_titulo">Tecnologías & Herramientas</h2>
+        <p class="seccion__intro" data-i18n="sec_tech_intro">Tecnologías y herramientas que he utilizado en proyectos
+          Backend, Frontend y entornos de desarrollo.</p>
+
+        <div id="lista-habilidades"></div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECCIÓN CURRÍCULUM & DESCARGA CV
+         ============================================================ -->
+    <section class="seccion" id="curriculum">
+      <div class="contenedor">
+        <p class="seccion__eyebrow mono" data-i18n="sec_trayectoria_num">03. Trayectoria</p>
+        <h2 class="seccion__titulo" data-i18n="sec_curriculum_titulo">Currículum</h2>
+
+        <div class="curriculum__grid">
+          <div class="reveal">
+            <h3 class="curriculum__subtitulo" data-i18n="curriculum_educacion">Educación</h3>
+            <ol class="timeline" id="lista-educacion"></ol>
+          </div>
+          <div class="reveal">
+            <h3 class="curriculum__subtitulo" data-i18n="curriculum_experiencia">Experiencia</h3>
+            <ol class="timeline" id="lista-experiencia"></ol>
+          </div>
+        </div>
+
+        <!-- Apartado destacado para Descarga de Curriculum Vitae (PDF) -->
+        <div class="cv-download-card reveal">
+          <div class="cv-download-card__left">
+            <div class="cv-download-card__icono">
+              <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="12" y1="18" x2="12" y2="12"></line>
+                <polyline points="9 15 12 18 15 15"></polyline>
+              </svg>
+            </div>
+            <div class="cv-download-card__info">
+              <h3 class="cv-download-card__titulo" data-i18n="cv_descargar_titulo">Descargar Currículum</h3>
+              <p class="cv-download-card__desc" data-i18n="cv_descargar_sub">Obtén una copia en PDF con los detalles
+                completos de mi formación, habilidades y experiencia profesional.</p>
+            </div>
+          </div>
+          <a href="assets/docs/CV_Carlos_Patal.pdf" download="CV_Carlos_Patal.pdf" target="_blank"
+            rel="noopener noreferrer" class="boton boton--primario cv-download-card__btn">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span data-i18n="btn_descargar_cv">Descargar CV (PDF)</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECCIÓN PROYECTOS
+         ============================================================ -->
+    <section class="seccion" id="proyectos">
+      <div class="contenedor">
+        <p class="seccion__eyebrow mono" data-i18n="sec_portafolio_num">04. Portafolio</p>
+        <h2 class="seccion__titulo" data-i18n="sec_proyectos_titulo">Proyectos Destacados</h2>
+        <p class="seccion__intro reveal" data-i18n="proyectos_grup_intro">Sistemas y aplicaciones web desarrollados con
+          arquitectura backend y fullstack.</p>
+        <div class="proyectos-showcase__grid" id="lista-proyectos-grupales"></div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECCIÓN CONTACTO
+         ============================================================ -->
+    <section class="seccion contacto-destacado" id="contacto">
+      <div class="contenedor">
+        <div class="contacto-card tarjeta reveal">
+          <div class="contacto-card__header">
+            <div class="contacto-badge">
+              <span class="contacto-badge__dot"></span>
+              <span data-i18n="contacto_disponible">Disponible para nuevos proyectos</span>
+            </div>
+            <p class="seccion__eyebrow mono" style="margin-top: 1rem;" data-i18n="contacto_eyebrow">05. Contáctame</p>
+            <h2 class="contacto-card__titulo" data-i18n="contacto_titulo">¿Tienes una idea o proyecto en mente?</h2>
+            <p class="contacto-card__sub" data-i18n="contacto_sub">Estoy buscando oportunidades para aportar valor en
+              entornos de desarrollo backend y fullstack. ¡Contáctame!</p>
+          </div>
+
+          <div class="contacto-card__grid">
+            <!-- Email Personal -->
+            <a href="mailto:correoinfocarlosale@gmail.com" target="_blank" rel="noopener noreferrer"
+              class="contacto-item contacto-item--email tarjeta">
+              <div class="contacto-item__icono" style="background-color: rgba(234, 67, 53, 0.12); color: #EA4335;">
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="4" width="20" height="16" rx="2" />
+                  <path d="m22 7-10 6L2 7" />
+                </svg>
+              </div>
+              <div class="contacto-item__info">
+                <span class="contacto-item__label mono" data-i18n="contacto_label_email_personal">Email Personal</span>
+                <strong class="contacto-item__val">correoinfocarlosale@gmail.com</strong>
+              </div>
+              <span class="contacto-item__arrow">&rarr;</span>
+            </a>
+
+            <!-- Email Institucional -->
+            <a href="mailto:cpatal-2024136@kinal.edu.gt" target="_blank" rel="noopener noreferrer"
+              class="contacto-item contacto-item--email-edu tarjeta">
+              <div class="contacto-item__icono" style="background-color: rgba(37, 99, 235, 0.12); color: #2563eb;">
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                  <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                </svg>
+              </div>
+              <div class="contacto-item__info">
+                <span class="contacto-item__label mono" data-i18n="contacto_label_email_edu">Email Institucional</span>
+                <strong class="contacto-item__val">cpatal-2024136@kinal.edu.gt</strong>
+              </div>
+              <span class="contacto-item__arrow">&rarr;</span>
+            </a>
+
+            <!-- LinkedIn -->
+            <a data-link="linkedin" href="https://www.linkedin.com/in/carlos-alejandro-b243802b2/" target="_blank"
+              rel="noopener noreferrer" class="contacto-item contacto-item--linkedin tarjeta">
+              <div class="contacto-item__icono" style="background-color: rgba(10, 102, 194, 0.12); color: #0A66C2;">
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+                  <path
+                    d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z" />
+                </svg>
+              </div>
+              <div class="contacto-item__info">
+                <span class="contacto-item__label mono">LinkedIn</span>
+                <strong class="contacto-item__val">Carlos Patal</strong>
+              </div>
+              <span class="contacto-item__arrow">&rarr;</span>
+            </a>
+
+            <!-- GitHub -->
+            <a data-link="github" href="https://github.com/cpatal-2024136" target="_blank" rel="noopener noreferrer"
+              class="contacto-item contacto-item--github tarjeta">
+              <div class="contacto-item__icono" style="background-color: rgba(137, 87, 229, 0.12); color: #8957E5;">
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+                  <path
+                    d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.55v-2.16c-3.2.7-3.87-1.36-3.87-1.36-.53-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.7 1.25 3.35.96.1-.75.4-1.26.72-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.25.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.16-1.18 3.16-1.18.63 1.59.24 2.76.12 3.05.74.8 1.18 1.83 1.18 3.08 0 4.42-2.69 5.39-5.25 5.68.41.35.77 1.05.77 2.12v3.14c0 .3.2.66.8.55A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z" />
+                </svg>
+              </div>
+              <div class="contacto-item__info">
+                <span class="contacto-item__label mono">GitHub</span>
+                <strong class="contacto-item__val">@cpatal-2024136</strong>
+              </div>
+              <span class="contacto-item__arrow">&rarr;</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer">
+    <div class="contenedor footer__interior">
+      <div style="margin-bottom: 0.75rem;">
+        <a class="nav__marca" href="#inicio" data-perfil="marca" style="font-size: 1.3rem;">&lt;dev /&gt;</a>
+      </div>
+      <p class="footer__copy mono">
+        © <span id="anio-actual"></span>
+        <span data-perfil="nombre">Carlos Patal</span> —
+        <span data-i18n="footer_hecho">Hecho en WordPress con HTML, CSS y JavaScript.</span>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>

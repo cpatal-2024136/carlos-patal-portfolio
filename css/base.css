@@ -1,0 +1,365 @@
+/* ============================================================
+   BASE.CSS — VARIABLES, RESET Y TIPOGRAFÍA
+   ------------------------------------------------------------
+   Tema "Pure Black" (AMOLED): fondo #000000 absoluto para que
+   los componentes y la tipografía resalten al máximo.
+   ============================================================ */
+
+:root {
+  /* Paleta AMOLED */
+  --color-fondo: #000000;            /* Negro puro (AMOLED) */
+  --color-superficie: #0d0d0d;       /* Tarjetas y paneles */
+  --color-superficie-alta: #141414;  /* Elementos elevados (hover) */
+  --color-borde: #1f1f1f;            /* Bordes sutiles */
+  --color-texto: #f5f5f5;            /* Texto principal */
+  --color-texto-suave: #a3a3a3;      /* Texto secundario */
+  --color-acento: #00e5a0;           /* Verde menta neón (acento) */
+  --color-acento-oscuro: #00b37e;    /* Acento para hover */
+  --color-acento-tenue: rgba(0, 229, 160, 0.12); /* Fondos de chips */
+
+  /* Tipografía */
+  --fuente-texto: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --fuente-mono: "JetBrains Mono", ui-monospace, "Cascadia Code", monospace;
+
+  /* Medidas */
+  --ancho-maximo: 1100px;
+  --radio: 16px;
+  --transicion: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Tema Claro — Paleta vibrante y llena de vida */
+:root[data-tema="claro"] {
+  --color-fondo: #f0f4f8;
+  --color-superficie: rgba(255, 255, 255, 0.9);
+  --color-superficie-alta: #ffffff;
+  --color-borde: rgba(37, 99, 235, 0.15);
+  --color-texto: #0f172a;
+  --color-texto-suave: #475569;
+  --color-acento: #2563eb; /* Azul cobalto / índigo vibrante */
+  --color-acento-oscuro: #1d4ed8;
+  --color-acento-tenue: rgba(37, 99, 235, 0.1);
+}
+
+/* ---------- Reset mínimo ---------- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  font-family: var(--fuente-texto);
+  font-size: 1rem;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+  transition: background-color var(--transicion), color var(--transicion);
+  overflow-x: hidden;
+}
+
+/* Cuadrícula tecnológica y luces ambientales de fondo */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image: 
+    radial-gradient(circle at 15% 20%, rgba(0, 229, 160, 0.07) 0%, transparent 45%),
+    radial-gradient(circle at 85% 75%, rgba(0, 210, 255, 0.05) 0%, transparent 50%),
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+  pointer-events: none;
+}
+
+[data-tema="claro"] body::before {
+  background-image: 
+    radial-gradient(circle at 10% 15%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 90% 40%, rgba(16, 185, 129, 0.14) 0%, transparent 50%),
+    radial-gradient(circle at 50% 85%, rgba(245, 158, 11, 0.12) 0%, transparent 50%),
+    linear-gradient(rgba(37, 99, 235, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(37, 99, 235, 0.04) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 36px 36px, 36px 36px;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+button {
+  font: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+}
+
+/* ---------- Utilidades ---------- */
+.contenedor {
+  width: min(100% - 3rem, var(--ancho-maximo));
+  margin-inline: auto;
+}
+
+.mono {
+  font-family: var(--fuente-mono);
+  font-size: 0.85rem;
+}
+
+.acento {
+  background: linear-gradient(135deg, var(--color-acento) 0%, #00d2ff 50%, var(--color-acento) 100%);
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: brilloAcento 5s ease infinite;
+}
+
+[data-tema="claro"] .acento {
+  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 40%, #059669 100%);
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+@keyframes brilloAcento {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Tarjeta base reutilizada en varias secciones con efecto Glassmorphism */
+.tarjeta {
+  background-color: var(--color-superficie);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio);
+  padding: 1.75rem;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+  transition: border-color var(--transicion), transform var(--transicion), box-shadow var(--transicion), background-color var(--transicion);
+  position: relative;
+  overflow: hidden;
+}
+
+[data-tema="claro"] .tarjeta {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.88) 100%);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 10px 30px -10px rgba(37, 99, 235, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+}
+
+/* Resplandor interno sutil al pasar el cursor */
+.tarjeta::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    500px circle at var(--mouse-x, 50%) var(--mouse-y, 0%), 
+    rgba(0, 229, 160, 0.1), 
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity var(--transicion);
+  pointer-events: none;
+}
+
+[data-tema="claro"] .tarjeta::after {
+  background: radial-gradient(
+    500px circle at var(--mouse-x, 50%) var(--mouse-y, 0%), 
+    rgba(37, 99, 235, 0.1), 
+    transparent 60%
+  );
+}
+
+.tarjeta:hover {
+  border-color: rgba(0, 229, 160, 0.4);
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px -15px rgba(0, 229, 160, 0.15);
+}
+
+[data-tema="claro"] .tarjeta:hover {
+  border-color: rgba(37, 99, 235, 0.4);
+  box-shadow: 0 20px 40px -12px rgba(37, 99, 235, 0.18);
+}
+
+.tarjeta:hover::after {
+  opacity: 1;
+}
+
+.tarjeta__titulo {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 0.9rem;
+}
+
+/* Botones con efectos brillantes */
+.boton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.75rem 1.6rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all var(--transicion);
+  position: relative;
+  overflow: hidden;
+}
+
+.boton--primario {
+  background: linear-gradient(135deg, var(--color-acento), #00c98c);
+  color: #001a12;
+  box-shadow: 0 4px 15px rgba(0, 229, 160, 0.25);
+}
+
+[data-tema="claro"] .boton--primario {
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+  color: #ffffff;
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.35);
+}
+
+.boton--primario:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(0, 229, 160, 0.45);
+}
+
+[data-tema="claro"] .boton--primario:hover {
+  background: linear-gradient(135deg, #1d4ed8, #6d28d9);
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.5);
+}
+
+.boton--fantasma {
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--color-borde);
+  color: var(--color-texto);
+  backdrop-filter: blur(8px);
+}
+
+[data-tema="claro"] .boton--fantasma {
+  background-color: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(37, 99, 235, 0.25);
+  color: #1e293b;
+}
+
+.boton--fantasma:hover {
+  border-color: var(--color-acento);
+  color: var(--color-acento);
+  background-color: var(--color-acento-tenue);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px -5px rgba(0, 229, 160, 0.2);
+}
+
+[data-tema="claro"] .boton--fantasma:hover {
+  background-color: rgba(37, 99, 235, 0.08);
+  border-color: #2563eb;
+  color: #2563eb;
+  box-shadow: 0 10px 20px -5px rgba(37, 99, 235, 0.25);
+}
+
+/* Chips de tecnologías visualmente mejorados */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.85rem;
+  border-radius: 999px;
+  background-color: var(--color-acento-tenue);
+  border: 1px solid rgba(0, 229, 160, 0.2);
+  color: var(--color-acento);
+  font-family: var(--fuente-mono);
+  font-size: 0.78rem;
+  font-weight: 500;
+  transition: all var(--transicion);
+}
+
+[data-tema="claro"] .chip {
+  background-color: rgba(37, 99, 235, 0.08);
+  border-color: rgba(37, 99, 235, 0.2);
+  color: #2563eb;
+}
+
+.chip:hover {
+  border-color: var(--color-acento);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 229, 160, 0.2);
+}
+
+[data-tema="claro"] .chip:hover {
+  background-color: rgba(37, 99, 235, 0.15);
+  border-color: #2563eb;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+}
+
+/* ---------- Estructura de secciones ---------- */
+.seccion {
+  padding: 5.5rem 0;
+}
+
+.seccion__eyebrow {
+  color: var(--color-acento);
+  margin-bottom: 0.4rem;
+}
+
+.seccion__titulo {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+}
+
+.seccion__intro {
+  color: var(--color-texto-suave);
+  max-width: 60ch;
+  margin-bottom: 2.5rem;
+}
+
+/* ---------- Animación de aparición (scroll reveal) ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Accesibilidad: respeta la preferencia de menos movimiento */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}

@@ -1,0 +1,113 @@
+/* ============================================================
+   RESPONSIVE.CSS — MEDIA QUERIES
+   ------------------------------------------------------------
+   Puntos de quiebre:
+     · 900px  → tabletas: cuadrículas de 3 → 2 columnas y
+                menú hamburguesa (la lista de escritorio con
+                7 enlaces no cabe por debajo de ~800px)
+     · 640px  → móviles: todo a 1 columna
+   ============================================================ */
+
+/* ---------- Tabletas (≤ 900px) ---------- */
+@media (max-width: 900px) {
+  .galeria__grid,
+  .proyectos__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sobre-mi__grid,
+  .curriculum__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sobre-mi__perfil-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  /* Menú hamburguesa: la lista se despliega bajo la barra */
+  .nav__boton {
+    display: flex;
+  }
+
+  .nav__lista {
+    position: fixed;
+    top: 4.25rem; /* Justo debajo de la barra de navegación */
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    background-color: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--color-borde);
+    padding: 0.5rem 1.5rem;
+
+    /* En pantallas de poca altura el menú tiene su propio scroll;
+       al ser fixed, el scroll de la página no lo desplaza */
+    max-height: calc(100vh - 4.25rem); /* Respaldo sin svh */
+    max-height: calc(100svh - 4.25rem);
+    overflow-y: auto;
+
+    /* Oculto por defecto; se abre con .nav__lista--abierta */
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-8px);
+    transition: opacity var(--transicion), transform var(--transicion),
+      visibility var(--transicion);
+  }
+
+  .nav__lista--abierta {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .nav__lista li {
+    border-bottom: 1px solid var(--color-borde);
+  }
+
+  .nav__lista li:last-child {
+    border-bottom: none;
+  }
+
+  .nav__enlace {
+    display: block;
+    padding: 0.9rem 0;
+  }
+}
+
+/* ---------- Móviles (≤ 640px) ---------- */
+@media (max-width: 640px) {
+  .seccion {
+    padding: 4rem 0;
+  }
+
+  .sobre-mi__perfil-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .habilidades__grid,
+  .galeria__grid,
+  .proyectos__grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Los datos generales se apilan en pantallas angostas */
+  .datos__fila {
+    flex-direction: column;
+    gap: 0.1rem;
+  }
+
+  .datos__fila dd {
+    text-align: left;
+  }
+
+  .hero__acciones .boton {
+    width: 100%;
+    justify-content: center;
+  }
+}

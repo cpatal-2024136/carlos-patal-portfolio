@@ -1,0 +1,17 @@
+/*
+Theme Name: Carlos Patal Portfolio
+Theme URI: https://github.com/cpatal-2024136
+Author: Carlos Patal
+Author URI: https://github.com/cpatal-2024136
+Description: Tema personalizado oficial para el Portafolio Profesional de Carlos Patal - Desarrollador Web / Backend. Incluye soporte multilingüe (ES/EN), modo oscuro/claro y descarga de CV en PDF. Blindado en ciberseguridad.
+Version: 1.0.0
+License: MIT
+License URI: https://opensource.org/licenses/MIT
+Tags: portfolio, developer, dark-mode, responsive-layout, fullstack, backend, clean-code, security-hardened
+Text Domain: carlos-patal-portfolio
+*/
+
+/* Importación de hojas de estilo modulares del portafolio */
+@import url('css/base.css');
+@import url('css/components.css');
+@import url('css/responsive.css');
